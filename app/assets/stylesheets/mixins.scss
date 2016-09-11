@@ -1,0 +1,33 @@
+// @mixin button($color: #00f) {
+//   background-color: $color;
+//   color: #fff;
+//   display: block;
+//   padding: 5px 10px;
+// 
+//   &:hover {
+//     background-color: darken($color, 10%);
+//   }
+// }
+// 
+// .button {
+//   @include button;
+// }
+// 
+// .button--secondary {
+//   @include button(#bbb);
+// }
+
+// $flashes: (
+//   "error": #fbe3e4,
+//   "notice": #e5edf8,
+//   "success": #e6efc2,
+// );
+// 
+// @each $type, $color in $flashes {
+//   .flash-#{$type} {
+//     background: $color;
+//     color: darken($color, 10%);
+//     padding: 10px 20px;
+//     width: 100%;
+//   }
+// }
