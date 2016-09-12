@@ -8,8 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-  <body class="<%= body_class %>">
-    <%= render "flashes" %>
+  <body>
+  <!-- <body class="<%#= body_class %>"> -->
+    <!-- <%#= render "flashes" %> -->
     
     <div id="user-widget">
       <% if current_user %>
@@ -21,6 +22,6 @@
     </div>
     
     <%= yield %>
-    <%= render "javascript" %>
+    <!-- <%#= render "javascript" %> -->
   </body>
 </html>

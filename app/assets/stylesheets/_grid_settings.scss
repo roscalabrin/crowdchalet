@@ -1,0 +1,12 @@
+@import "neat-helpers";
+
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: 1300px;
+
+$medium-screen-width: 600px;
+$large-screen-width: 900px;
+
+$small-screen: new-breakpoint(max-width $medium-screen-width 4);
+$medium-screen: new-breakpoint(max-width $large-screen-width 8);
