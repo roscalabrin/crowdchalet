@@ -13,9 +13,13 @@
  *= require_tree .
  *= require_self
  */
- @import "mixins";
+ 
+ @charset "utf-8";
+ @import "normalize-rails";
+ // @import "mixins";
  @import "bourbon";
  @import "neat";
- @import "base/base";
  
+ @import "base/base";
+ @import "components/*"
  
