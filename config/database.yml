@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: crowdchalet_production
-  username: crowdchalet
-  password: <%= ENV['CROWDCHALET_DATABASE_PASSWORD'] %>
+  #database: crowdchalet_production
+  #username: crowdchalet
+# password: <#%= ENV['CROWDCHALET_DATABASE_PASSWORD'] %>
