@@ -1,3 +1,21 @@
+.locations-header {
+  @include outer-container;
+  text-align: center;
+  
+  .title {
+      font-size: 1.5em;
+  }
+  
+  .subtitle {
+      font-size: 1em;
+  }
+  
+}
+
+.space-box {
+  min-height: 10%;
+}
+
 .locations {
   display: flex;
   flex-wrap: wrap;
