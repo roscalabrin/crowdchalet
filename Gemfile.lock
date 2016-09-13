@@ -84,6 +84,8 @@ GEM
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
     hashie (3.4.4)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -253,11 +255,13 @@ DEPENDENCIES
   factory_girl_rails
   faraday
   figaro
+  httparty
   jbuilder (~> 2.5)
   jquery-rails
   launchy
   listen (~> 3.0.5)
   neat
+  nokogiri
   normalize-rails (~> 3.0.0)
   omniauth-facebook
   pg (~> 0.18)

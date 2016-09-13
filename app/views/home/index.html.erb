@@ -1,1 +1,59 @@
-Welcome!
+
+<div class="flex-boxes">
+  <a href="javascript:void(0)" class="flex-box flex-box-big">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="">
+    <h1 class="flex-title">Create a Group</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad nostrum, libero! Laborum distinctio necessitatibus voluptates eaque officiis, unde illo, earum voluptatum rerum, reiciendis ipsa ex dolorem a dicta, maxime aliquam.</p>
+  </a>
+  <a href="javascript:void(0)" class="flex-box flex-box-big">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="">
+    <h1 class="flex-title">Join a Group</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum molestiae fugiat tenetur fugit atque dignissimos, fugiat natus vitae.</p>
+  </a>
+</div>
+</br>
+
+<div class="container">
+  <h1>Title h1</h1>
+  <h2>Subtitle h2</h2>
+</div>
+</br>
+
+<div class="locations">
+  <div class="location">
+    <div class="location-image">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+    </div>
+    <div class="location-header">
+      First location
+    </div>
+  </div>
+
+  <div class="location">
+    <div class="location-image">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png" alt="">
+    </div>
+    <div class="location-header">
+      Another location
+    </div>
+  </div>
+
+  <div class="location">
+    <div class="location-image">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png" alt="">
+    </div>
+    <div class="location-header">
+      The Last location
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<% @listings_array.map do |listing| %>
+  <%= listing %><br>
+<% end %>
+
+
