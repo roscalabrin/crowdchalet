@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.feature "User logs in with Facebook" do
   before do
     setup_for_omniauth
-    # require "pry"
-    # binding.pry
   end
   scenario "user enters their Facebook credentials and logs in to the app" do
     visit root_path

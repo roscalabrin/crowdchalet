@@ -1,0 +1,7 @@
+.search-results {
+  @include outer-container;
+  
+  span {
+    font-weight: 600;
+  }
+}
