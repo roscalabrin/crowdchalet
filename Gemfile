@@ -33,6 +33,7 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'pry'
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
