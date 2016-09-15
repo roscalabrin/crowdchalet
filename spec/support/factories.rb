@@ -1,3 +1,7 @@
 FactoryGirl.define do
-  <factories for each model go here>
+  factory :user do
+    name "User Name"
+    email "user@gmail.com"
+    image "http://profile_image.png"
+  end
 end

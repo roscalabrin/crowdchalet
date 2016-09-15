@@ -1,4 +1,3 @@
-
 .flex-boxes {
   $base-border-radius: 3px !default;
   $base-background-color: white !default;
@@ -27,11 +26,11 @@
   justify-content: center;
   text-align: center;
 
-  .flex-box {
+.flex-box {
     align-self: stretch;
-    background: $flex-box-background;
+    background-image: image-url("join_group.jpg");
     border-radius: $base-border-radius;
-    box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px darken($base-background-color, 10%);
+    // box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px darken($base-background-color, 10%);
     display: block;
     flex: 2 2 15em;
     margin: $flex-box-gutter;
@@ -42,7 +41,7 @@
     @for $i from 1 to 7 { // assign colors from $flex-box-top-colors list
       &:nth-child(#{$i}) {
         $color-from-list: nth($flex-box-top-colors, $i);
-        border-top: 6px solid $color-from-list;
+        // border-top: 6px solid $color-from-list;
 
         &:focus,
         &:hover {
@@ -53,7 +52,7 @@
 
     img {
       display: block;
-      height: 3em;
+      height: 5em;
       margin: 0 auto 1em;
       opacity: 0.4;
     }
@@ -75,3 +74,6 @@
     flex: 1 1 40em;
   }
 }
+
+
+
