@@ -16,12 +16,4 @@ class HouseFinder
   def service
     CraigslistService.new
   end
-  
-  # def format_result
-  #   @raw_result.map do |listing|
-  #     listing_info = listing.split(",")
-  #     @locations.append(listing_info.first)
-  #     @links.append(listing_info.second)
-  #   end
-  # end
 end

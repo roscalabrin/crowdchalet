@@ -51,14 +51,15 @@
 
   .location-image {
     background-color: $location-image-hover-color;
-    height: 150px;
-    max-height: 150px;
+    height: 250px;
+    max-height: 250px;
     overflow: hidden;
 
     img {
       @include border-top-radius($base-border-radius);
       opacity: 1;
       transition: all 0.2s ease-in-out;
+
       width: 100%;
     }
   }

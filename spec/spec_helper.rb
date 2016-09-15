@@ -55,7 +55,9 @@ def setup_for_omniauth
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
     :provider => 'facebook',
     :info => { :uid => '123545',
-               :name => 'Roberta'
+               :name => 'Roberta Doyle',
+               :email => 'roberta@example.com',
+               :image => 'http://link_to_profile_image'
              },
     credentials: { :token => '123ABC'}
     })
