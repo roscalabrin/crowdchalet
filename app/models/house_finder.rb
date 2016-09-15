@@ -10,7 +10,14 @@ class HouseFinder
   end
   
   def return_houses
-    service.search_ski_houses(params)
+    houses = service.search_ski_houses(params)
+    houses.map do |house|
+      house_path = house.attributes["href"].value
+      HouseListing.new(
+          name: house.children.text,
+          link: "https://rockies.craigslist.org#{house_path}"
+        )
+      end  
   end
   
   def service

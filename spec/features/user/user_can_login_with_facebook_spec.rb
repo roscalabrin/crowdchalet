@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User logs in with Facebook" do
+feature "User logs in with Facebook" do
   before do
     setup_for_omniauth
   end
