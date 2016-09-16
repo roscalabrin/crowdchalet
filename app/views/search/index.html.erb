@@ -7,8 +7,8 @@
     <li>
     <span class="listing-name"><%= listing.name %></span>
     </br>
-    <a href="#{listing.link}"><%= listing.link %></a>
-    <!-- <div class="save-listing" data-listing-name="<%= listing.name %>" data-initial-is-save="test"></div> -->
+    <a href="#{listing.link}" class="listing-link"><%= listing.link %></a>
+    <div class="save-listing"></div>
     <button name="button-save" class="save-btn">Save</button>
   </li>
   <% end %>

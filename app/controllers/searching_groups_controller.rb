@@ -1,4 +1,8 @@
 class SearchingGroupsController < ApplicationController
+  def index
+    @searching_groups = SearchingGroup.all
+  end
+  
   def new
     @searching_group = SearchingGroup.new
   end

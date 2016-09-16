@@ -1,8 +1,9 @@
 class HouseListing
-  attr_reader :name, :link
+  attr_reader :name, :link, :saved
   
   def initialize(hash)
-    @name = hash[:name]
-    @link = hash[:link]
+    @name  = hash[:name]
+    @link  = hash[:link]
+    @saved = false
   end
 end
