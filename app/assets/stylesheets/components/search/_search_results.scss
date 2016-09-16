@@ -5,3 +5,19 @@
     font-weight: 600;
   }
 }
+
+#listings {
+  @include outer-container;
+  
+  .listing-info {
+    @include span-columns(6);
+    margin-top: 2%;
+    border-bottom: 1px solid grey;
+  }
+
+  .save-listing {
+    @include span-columns(6);
+    @include omega();
+    margin-top: 2%;
+  }
+}

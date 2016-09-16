@@ -4,12 +4,13 @@
   $medium-screen: 40em !default;
   $large-screen: 53.75em !default;
   $footer-background: #4D4D4D;
-  $footer-color: #212B40;
+  $footer-color: #fff;
   $footer-link-color: transparentize($footer-color, 0.6);
   $footer-disclaimer-color: transparentize($footer-color, 0.6);
 
   background: $footer-background;
   padding: ($base-spacing * 2) $gutter;
+  padding-bottom: 5%;
   width: 100%;
   height: 1.5em;
 

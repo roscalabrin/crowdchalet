@@ -1,15 +1,17 @@
 <div class="search-results">
   <h2>Search Results</h2>
   <p class="search-results-count"><%= @results.count%> listings found </p>
-  
-  <ul id="listings">
-  <% @results.map do |listing| %>
-    <li>
-    <span class="listing-name"><%= listing.name %></span>
-    </br>
-    <a href="#{listing.link}" class="listing-link"><%= listing.link %></a>
-    <div class="save-listing"></div>
-    <button name="button-save" class="save-btn" value="<%= listing.name%>|<%= listing.link %>">Save</button>
-  </li>
-  <% end %>
+  <hr>
+
+  <div id="listings">
+    <% @results.map do |listing| %>
+      <div class="listing-info">
+        <p><span class="listing-name"><%= listing.name %></span>
+        </br><a href="#{listing.link}" class="listing-link"><%= listing.link %></a></p>
+      </div>
+      <div class="save-listing">
+        <button name="button-save" class="save-btn" value="<%= listing.name%>|<%= listing.link %>">Save</button>
+      </div>
+    <% end %>
+  </div>
 </div>
