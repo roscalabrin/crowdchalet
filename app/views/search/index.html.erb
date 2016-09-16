@@ -9,7 +9,7 @@
     </br>
     <a href="#{listing.link}" class="listing-link"><%= listing.link %></a>
     <div class="save-listing"></div>
-    <button name="button-save" class="save-btn">Save</button>
+    <button name="button-save" class="save-btn" value="<%= listing.name%>|<%= listing.link %>">Save</button>
   </li>
   <% end %>
 </div>
