@@ -1,3 +1,32 @@
-<h1>Profile Information</h1>
-<h1>Groups</h1>
-<h1>Notifications</h1>
+<div class="vertical-tabs-container">
+  <div class="vertical-tabs">
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab is-active" rel="tab1">Profile Information</a>
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab2">Groups</a>
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab3">Notifications</a>
+  </div>
+
+  <div class="vertical-tab-content-container">
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">Profile Information</a>
+    <div id="tab1" class="js-vertical-tab-content vertical-tab-content">
+      <%= image_tag(@user.image, class: "profile-picture", alt: "profile picture") %>
+      <h2><%= @user.name %><h2>
+      </p><%= @user.email %></p>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">Groups</a>
+    <div id="tab2" class="js-vertical-tab-content vertical-tab-content">
+      <p>
+      <%= render partial: "user_groups"%>
+      </p>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">Notifications</a>
+    <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
+  
+    </p>Requests</p>
+  </p>Invitations</p>
+    </div>
+  </div>
+</div>
+
+

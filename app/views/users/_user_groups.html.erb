@@ -1,0 +1,12 @@
+<% current_user.searching_groups.each do |group| %>
+<div class="comment">
+  <div class="comment-image">
+    <img src="<%= User.find(group.group_leader).image %>">
+  </div>
+  <div class="comment-content">
+    <h1><%= group.name %></h1>
+    <p>Current number of people: x | Missing: x people</p>
+    <%= link_to "View Group", searching_group_path(group), class: "comment-detail" %>
+  </div>
+</div>
+<% end %>
