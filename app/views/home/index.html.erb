@@ -1,25 +1,7 @@
-<div class="locations-header">
-  <h1 class="title">Welcome to Crowd Chalet!</h1>
+<div class="home-title">
+  <h1 class="title">The <span class="home-title-words">easiest</span> way to organize seasonal <span class="home-title-words">ski houses</span></h1>
 </div>
-
-<div class="flex-boxes">
-  <a href="javascript:void(0)" class="flex-box">
-    <%= link_to "Create a Group", new_searching_group_path %>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad nostrum, libero! Laborum distinctio necessitatibus voluptates eaque officiis, unde illo, earum voluptatum rerum, reiciendis ipsa ex dolorem a dicta, maxime aliquam.</p>
-
-  <a href="javascript:void(0)" class="flex-box">
-    <h1>Join a Group</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
-  </a>
-</div>
-</br>
-
-<div>
-  <%= render partial: "search" %>  
-</div>
-<br>
-<div class="space-box">
-</div>
-
+<%= render partial: "group_boxes" %>
+<%= render partial: "search" %>  
+<div class="space-box"></div>
 <%= render partial: "locations" %>
