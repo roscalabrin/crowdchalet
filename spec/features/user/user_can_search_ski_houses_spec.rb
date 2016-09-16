@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User can search for ski houses to rent" do
+feature "User can search for ski houses to rent" do
   scenario "user enter valid search parameters and sees a list of house listings" do
     VCR.use_cassette("#craigslist_search_ski_houses") do
       visit root_path
