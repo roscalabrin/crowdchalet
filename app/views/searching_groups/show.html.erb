@@ -3,15 +3,17 @@
     <div class="side-image-content">
       <h4><%= @searching_group.location %></h4>
       <h1><h1> <%= @searching_group.name %></h1></h1>
+      <p><%= @searching_group.description %></p>
       <div class="stats">
         <ul>
           <li><%= @searching_group.max_number_of_people %><span>Max number of people</span></li>
           <li>4<span>Missing</span></li>
           <li><span></span></li>
-          <li> <%= button_to "Request to Join" %></li>
         </ul>
       </div>
-      <p><%= @searching_group.description %></p>
+      <% if @member.empty? %>
+        <p><%= button_to "Request to Join" %></p>
+      <% end %>
   </div>
 </div>
 

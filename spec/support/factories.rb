@@ -13,4 +13,9 @@ FactoryGirl.define do
     max_number_of_people 12
     max_budget_per_month 300.00
   end
+  
+  factory :users_group do
+    user
+    searching_group
+  end
 end
