@@ -13,7 +13,7 @@ feature "User logs in with Facebook" do
       click_link("Login with Facebook")
     end
 
-    expect(page).to have_content "Welcome, Roberta Doyle!"
+    expect(page).to have_content "Hi, Roberta Doyle!"
     expect(page).to have_link "Logout"
     expect(page).not_to have_link "Login"
   end

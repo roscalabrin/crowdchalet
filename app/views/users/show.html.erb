@@ -2,7 +2,8 @@
   <div class="vertical-tabs">
     <a href="javascript:void(0)" class="js-vertical-tab vertical-tab is-active" rel="tab1">Profile Information</a>
     <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab2">Groups</a>
-    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab3">Notifications</a>
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab3">Saved Listings</a>
+    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab4">Notifications</a>
   </div>
 
   <div class="vertical-tab-content-container">
@@ -19,12 +20,21 @@
       <%= render partial: "user_groups"%>
       </p>
     </div>
-
-    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">Notifications</a>
+    
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab3">Saved Listings</a>
     <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
-  
-    </p>Requests</p>
-  </p>Invitations</p>
+      <% @user.user_listings.each do |listing| %>
+        <div class="">
+          <p><strong><%= listing.name %></strong></p>
+          <p> <%= link_to listing.url, listing.url %>
+        </div>
+      <% end %>
+    </div>
+
+    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">Notifications</a>
+    <div id="tab4" class="js-vertical-tab-content vertical-tab-content">
+      </p>Requests</p>
+      </p>Invitations</p>
     </div>
   </div>
 </div>

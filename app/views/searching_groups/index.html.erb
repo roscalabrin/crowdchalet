@@ -1,0 +1,11 @@
+<div class="grid-items-lines">
+  <% @searching_groups.each do |group| %>
+  <a href="<%= searching_group_path(group) %>" class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="">
+    <h1><%= group.name %></h1>
+    <p> <%= group.max_number_of_people %> People | Missing: x </p>
+  </a>
+  <% end %>
+  <div class="right-cover"></div>
+  <div class="bottom-cover"></div>
+</div>

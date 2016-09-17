@@ -4,7 +4,7 @@ header.navigation {
   $action-color: #477DCA !default;
   $dark-gray: #333 !default;
   $large-screen: 53.75em !default;
-  $navigation-padding: 1em;
+  $navigation-padding: 2em;
   $navigation-background: #212B40;
   $navigation-color: #FFF;
   $navigation-color-hover: grey;
@@ -67,13 +67,16 @@ header.navigation {
 
   // Nav menu
 
+  #js-navigation-menu {
+    float: right;
+  }
+  
   nav {
-    float: none;
     min-height: $navigation-height;
     z-index: 9999999;
 
     @include media ($horizontal-bar-mode) {
-      float: left;
+      float: right;
     }
   }
 
