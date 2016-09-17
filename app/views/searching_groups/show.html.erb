@@ -1,3 +1,17 @@
-<h1> <%= @searching_group.name %></h1>
-<p> <%= @searching_group.description %></p>
-<p> <%= @searching_group.location %></p>
+<div class="side-image">
+  <div class="images-wrapper"></div>
+    <div class="side-image-content">
+      <h4><%= @searching_group.location %></h4>
+      <h1><h1> <%= @searching_group.name %></h1></h1>
+      <div class="stats">
+        <ul>
+          <li>12<span>Max number of people</span></li>
+          <li>4<span>Missing</span></li>
+          <li><span></span></li>
+          <li> <%= button_to "Request to Join" %></li>
+        </ul>
+      </div>
+      <p><%= @searching_group.description %></p>
+  </div>
+</div>
+
