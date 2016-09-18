@@ -7,4 +7,5 @@ class SearchingGroup < ApplicationRecord
             :group_leader, presence: true
   has_many :users_groups
   has_many :users, through: :users_groups
+  has_many :group_listings
 end

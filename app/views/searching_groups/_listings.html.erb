@@ -11,7 +11,7 @@
         <%= listing.name %>
       </td>
       <td> 
-        <button>Add to Group</button>
+        <button name="button-add-to-group" class="add-btn" value="<%= listing.name%>|<%= listing.url%>|<%=@searching_group.id %>">Add to Group</button>
       </td>
       </tr>
     <% end %>
@@ -25,10 +25,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @current_user.user_listings.each do |listing| %>
+    <% @searching_group.group_listings.each do |listing| %>
       <tr>
         <td> 
-          <%= listing.name %>
+          <%= listing.user_listing.name %>
         </td>
         <td> 
           <button>Like</button>

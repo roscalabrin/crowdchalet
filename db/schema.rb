@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916021446) do
+ActiveRecord::Schema.define(version: 20160918030153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "group_listings", force: :cascade do |t|
+    t.integer "user_listing_id"
+    t.integer "searching_group_id"
+    t.index ["searching_group_id"], name: "index_group_listings_on_searching_group_id", using: :btree
+    t.index ["user_listing_id"], name: "index_group_listings_on_user_listing_id", using: :btree
+  end
 
   create_table "searching_groups", force: :cascade do |t|
     t.text     "name"
@@ -56,6 +63,8 @@ ActiveRecord::Schema.define(version: 20160916021446) do
     t.index ["user_id"], name: "index_users_groups_on_user_id", using: :btree
   end
 
+  add_foreign_key "group_listings", "searching_groups"
+  add_foreign_key "group_listings", "user_listings"
   add_foreign_key "user_listings", "users"
   add_foreign_key "users_groups", "searching_groups"
   add_foreign_key "users_groups", "users"
