@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   validates :name, :email, :image, presence: true
-  has_many :user_listings
-  has_many :users_groups
-  has_many :searching_groups, through: :users_groups
+  has_many  :user_listings
+  has_many  :users_groups
+  has_many  :searching_groups, through: :users_groups
+  has_many  :likes
   
   def self.from_omniauth(auth)
     where(uid: auth[:uid]).first_or_create do |user|

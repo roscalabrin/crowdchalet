@@ -18,7 +18,7 @@
   </tbody>
 </table>
 
-<table class="tables">
+<table class="tables group-table">
   <thead>
     <tr>
       <th>Group Listings</th>
@@ -31,7 +31,8 @@
           <%= listing.user_listing.name %>
         </td>
         <td> 
-          <button>Like</button>
+          <!-- <button>Like</button> -->
+          <div class="like-listing" data-initial-is-unliked="<%= listing.likes.where(user_id: current_user.id).empty? %>"></div>
         </td>
       </tr>
     <% end %>

@@ -16,12 +16,12 @@ feature "User can save ski house listing" do
       fill_in "location",  with: "Frisco"
       click_button "Find"
       
-      # within("#listings .save-listing") do
-      #   # first(:button, "Save").click
-      #   click_button "Save"
-      #   # expect{UserListing.count}.to change.by(1)
-      #   expect(page).to have_content("Saved")
-      # end
+      within("#listings div:nth-child(2)") do
+        expect(page).to have_button("Save")
+        click_button "Save"
+        # expect(page).to have_button("Saved")
+        # expect{UserListing.count}.to change.by(1)
+      end
     end
   end
 end
