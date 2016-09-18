@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources  :user_listings, only: [:create]
-      # delete 'user_listings',    to: 'user_listings#destroy'
+      delete 'user_listings',    to: 'user_listings#destroy'
     end
   end
   

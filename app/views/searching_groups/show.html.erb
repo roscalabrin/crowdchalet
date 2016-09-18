@@ -1,3 +1,4 @@
+<h1> <%= link_to "<- All Groups", searching_groups_path %></h1>
 <div class="side-image">
   <div class="images-wrapper"></div>
     <div class="side-image-content">
@@ -17,3 +18,6 @@
   </div>
 </div>
 
+<% if @member.empty? == false %>
+  <%= render partial: "listings" %>
+<% end %>

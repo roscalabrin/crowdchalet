@@ -1,0 +1,39 @@
+<table class="tables">
+  <thead>
+    <tr>
+      <th>My Listings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @current_user.user_listings.each do |listing| %>
+      <tr>
+      <td> 
+        <%= listing.name %>
+      </td>
+      <td> 
+        <button>Add to Group</button>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="tables">
+  <thead>
+    <tr>
+      <th>Group Listings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @current_user.user_listings.each do |listing| %>
+      <tr>
+        <td> 
+          <%= listing.name %>
+        </td>
+        <td> 
+          <button>Like</button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
