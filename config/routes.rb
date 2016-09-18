@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources  :user_listings,  only: [:create]
       resources  :group_listings, only: [:create]
+        resources :likes,         only: [:create]
+        delete 'likes', to: "likes#destroy"
+      # end
       delete 'user_listings',    to: 'user_listings#destroy'
       delete 'user_listings',    to: 'group_listings#destroy'
     end

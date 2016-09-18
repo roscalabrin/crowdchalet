@@ -1,7 +1,11 @@
 $(document).ready(function() {
   $(".like-listing").each(function(index, element) {
+    var props = {
+      initialIsUnliked: $(element).data("initial-is-unliked"),
+      groupListingID: $(element).data("group-listing-id")
+    }
     ReactDOM.render(
-      React.createElement(LikeListing, {initialIsUnliked: $(element).data("initial-is-unliked")}),
+      React.createElement(LikeListing, props),
       element
     )
   })
@@ -9,14 +13,23 @@ $(document).ready(function() {
 
 var LikeListing = React.createClass({
   render: function() {
+    console.log((this.state.isUnliked))
     if (this.state.isUnliked) {
      return React.createElement("div", {onClick: this.handleClick}, "Like");
-   } else {
+    } else {
      return React.createElement("div", {onClick: this.handleClick}, "Liked");
-   }
+    }
   },
   handleClick: function() {
-    this.setState({isUnliked: !this.state.isUnliked});
+    var method = this.state.isUnliked ? "POST" : "DELETE";
+    $.ajax({
+      url: "/api/v1/likes",
+      type: method,
+      data: {listing: this.props.groupListingID},
+      sucess: function(response){
+        this.setState({isUnliked: true});
+      }.bind(this)
+    });
   },
   getInitialState: function() {
     return {isUnliked: this.props.initialIsUnliked};
