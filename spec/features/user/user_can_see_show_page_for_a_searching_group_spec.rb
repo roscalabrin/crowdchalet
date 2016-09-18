@@ -12,7 +12,7 @@ describe "User can see individual page for a searching group" do
     
     click_link "Join a Group"
     click_link "Denver Couples: Winter 2016"
-  
+
     expect(current_path).to eq(searching_group_path(group))
     expect(page).to have_content "Denver Couples: Winter 2016"
     expect(page).to have_content "Vail"
@@ -24,10 +24,9 @@ describe "User can see individual page for a searching group" do
   end
     
   scenario "User clicks on a group from the group index page and sees all the detailed info of a group they are a member of" do
-    #change test to be create user and then see the show page
-    user = User.first
+    user = User.find_by(name: "Roberta Doyle")
     group2 = create(:searching_group, name: "Weekend Warriors", group_leader: user.id)
-    create(:users_group)
+    create(:users_group, user_id: user.id, searching_group_id: group2.id)
 
     click_link "Join a Group"
     click_link "Weekend Warriors"
@@ -39,7 +38,7 @@ describe "User can see individual page for a searching group" do
     expect(page).to have_content "Max number of people"
     expect(page).to have_content "4"
     expect(page).to have_content "Missing"
-save_and_open_page
+
     expect(page).to_not have_button "Request to Join"
     
     # within(".group-member-view") do
