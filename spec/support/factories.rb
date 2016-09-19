@@ -18,4 +18,15 @@ FactoryGirl.define do
     user
     searching_group
   end
+  
+  factory :user_listing do
+    user
+    name "Vail and Beaver Creek weekender $200"
+    url "https://rockies.craigslist.org/apa/5774733580.html"
+  end
+  
+  factory :group_listing do
+    user_listing
+    searching_group
+  end
 end

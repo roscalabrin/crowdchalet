@@ -40,6 +40,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'devise'
   gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'

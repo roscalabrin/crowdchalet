@@ -7,6 +7,13 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'vcr'
+require 'devise'
+# require 'support/controller_helpers'
+# 
+# RSpec.configure do |config|
+#   config.include Devise::Test::ControllerHelpers, :type => :controller
+#   config.extend ControllerHelpers, :type => :controller
+# end
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/vcr_cassettes"

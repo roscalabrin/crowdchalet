@@ -1,13 +1,20 @@
 class Api::V1::UserListingsController < ApplicationController 
   def create
-    listing_name = params[:listing].split("|").first
-    listing_url = params[:listing].split("|").second
-    UserListing.find_or_create_by(name: listing_name, url: listing_url, user_id: current_user.id)
+    UserListing.find_or_create_by(
+      name: set_listing.first, 
+      url:  set_listing.second, 
+      user_id: current_user.id
+    )
   end
 
   def destroy
-    listing_name = params[:listing].split("|").first
-    listing = UserListing.find_by(name: listing_name, user_id: current_user.id)
+    listing = UserListing.find_by(name: lset_listing.first, user_id: current_user.id)
     listing.delete
   end
+  
+  private
+  
+    def set_listing
+      params[:listing].split("|")
+    end
 end
