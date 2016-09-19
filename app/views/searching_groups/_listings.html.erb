@@ -33,6 +33,7 @@
         <td> 
           <!-- <button>Like</button> -->
           <div class="like-listing"  data-group-listing-id="<%= listing.id %>" data-initial-is-unliked="<%= listing.likes.where(user_id: current_user.id).empty? %>"></div>
+          <!-- <%#= react_component('LikeListing', groupListingID: listing.id, initialIsUnLiked: listing.likes.where(user_id: current_user.id).empty?) %> -->
         </td>
       </tr>
     <% end %>

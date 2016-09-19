@@ -13,7 +13,6 @@ $(document).ready(function() {
 
 var LikeListing = React.createClass({
   render: function() {
-    console.log((this.state.isUnliked))
     if (this.state.isUnliked) {
      return React.createElement("div", {onClick: this.handleClick}, "Like");
     } else {
@@ -28,10 +27,10 @@ var LikeListing = React.createClass({
       data: {listing: this.props.groupListingID},
       sucess: function(response){
         this.setState({isUnliked: true});
-      }.bind(this)
-    });
+      }.bind(this),
+    })
   },
   getInitialState: function() {
     return {isUnliked: this.props.initialIsUnliked};
   }
-});
+})
