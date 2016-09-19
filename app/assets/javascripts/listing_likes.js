@@ -25,8 +25,8 @@ var LikeListing = React.createClass({
       url: "/api/v1/likes",
       type: method,
       data: {listing: this.props.groupListingID},
-      sucess: function(response){
-        this.setState({isUnliked: true});
+      success: function(response){
+        this.setState({isUnliked: (response === null)});
       }.bind(this),
     })
   },

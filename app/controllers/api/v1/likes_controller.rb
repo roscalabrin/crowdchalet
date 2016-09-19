@@ -6,7 +6,10 @@ class Api::V1::LikesController < ApplicationController
   end
   
   def destroy
+    like = Like.find_by(group_listing_id: (params[:listing]), user_id: current_user.id)
+    like.delete
     @like = Like.find_by(group_listing_id: (params[:listing]), user_id: current_user.id)
-    @like.delete
+
+    render json: @like
   end
 end
