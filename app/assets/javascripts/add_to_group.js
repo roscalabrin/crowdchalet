@@ -12,7 +12,7 @@ function addListingButton(){
     if ($this.text() === "Add to Group") {
       $this.toggleClass("added");
       $this.text("Added to Group");
-      $.post("/api/v1/group_listings", listingParams);
+      $.post("/group_listings", listingParams);
     } else {
       $this.toggleClass("added");
       $this.text("Add to Group");

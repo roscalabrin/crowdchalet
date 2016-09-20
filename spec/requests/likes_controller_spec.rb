@@ -1,21 +1,43 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::LikesController, type: :request do
+  before do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  end
   
   describe "POST #create" do
-    
-    xit "creates a like associated to a specific user and a group listing " do
-    #how to stub authenticathed user?
-      group   = create(:searching_group, group_leader: user.id)
-      listing = create(:user_listing)
+    it "creates a like associated to a specific user and a group listing " do
+      user          = User.last
+      group         = create(:searching_group, group_leader: user.id)
+      listing       = create(:user_listing)
       group_listing = create(:group_listing, user_listing_id: listing.id, searching_group_id: group.id)
       
-      post "/api/v1/likes", {:listing => "#{listing.id}"}
+      post "/api/v1/likes", {:listing => "#{group_listing.id}"}
 
-      expect(response).to be_sucess
+      expect(response).to be_success
 
       content = JSON.parse(response.body)
-      expect(content.count).to eq(1)
+    
+      expect(content["group_listing_id"]).to eq(group_listing.id)
+      expect(content["user_id"]).to eq(user.id)
+    end
+  end
+    
+  describe "DELETE #destroy" do
+    it "deletes a like associated to a specific user and a group listing " do
+      user          = User.last
+      group         = create(:searching_group, group_leader: user.id)
+      listing       = create(:user_listing)
+      group_listing = create(:group_listing, user_listing_id: listing.id, searching_group_id: group.id)
+      like          = create(:like, user_id: user.id, group_listing_id: group_listing.id )
+      
+      delete "/api/v1/likes", {:listing => "#{group_listing.id}"}
+
+      expect(response).to be_success
+
+      content = JSON.parse(response.body)
+      expect(content).to eq nil
     end
   end
 end

@@ -23,7 +23,7 @@
     
     <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab3">Saved Listings</a>
     <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
-      <% @user.user_listings.each do |listing| %>
+      <% @user.saved_listings.each do |listing| %>
         <div class="">
           <p><strong><%= listing.name %></strong></p>
           <p> <%= link_to listing.url, listing.url %>

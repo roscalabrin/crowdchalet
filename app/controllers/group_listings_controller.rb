@@ -1,4 +1,4 @@
-class Api::V1::GroupListingsController < ApplicationController
+class GroupListingsController < ApplicationController
   def create
     listing_name = params[:listing].split("|").first
     listing_url = params[:listing].split("|").second

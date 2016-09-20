@@ -10,7 +10,8 @@
         </br><a href="#{listing.link}" class="listing-link"><%= listing.link %></a></p>
       </div>
       <div class="save-listing">
-        <button name="button-save" class="save-btn" value="<%= listing.name%>|<%= listing.link %>">Save</button>
+        
+        <button class="save-btn"  data-listing="<%= listing.name%>|<%= listing.link %>" data-initial-is-unsaved="<%= current_user.unsaved_listing?(listing.link)  %>"></button>
       </div>
     <% end %>
   </div>

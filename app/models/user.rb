@@ -14,4 +14,19 @@ class User < ApplicationRecord
       user.oauth_token = auth.credentials.token
     end
   end
+  
+  def saved_listings
+    user_listings.where(saved: true)
+  end
+  
+  def unsaved_listing?(listing_url)
+    # user_listings.find_by(url: listing.link).nil?
+    if user_listings.find_by(url: listing_url) == nil 
+      true
+    elsif user_listings.find_by(url: listing_url, saved: false).nil? == false
+      true
+    else
+      false
+    end
+  end
 end

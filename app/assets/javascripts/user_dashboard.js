@@ -1,7 +1,7 @@
 $(".js-vertical-tab-content").hide();
 $(".js-vertical-tab-content:first").show();
 
-/* if in tab mode */
+/* tab mode */
 $(".js-vertical-tab").click(function(event) {
   event.preventDefault();
 
@@ -16,7 +16,7 @@ $(".js-vertical-tab").click(function(event) {
   $(".js-vertical-tab-accordion-heading[rel^='"+activeTab+"']").addClass("is-active");
 });
 
-/* if in accordion mode */
+/* accordion mode */
 $(".js-vertical-tab-accordion-heading").click(function(event) {
   event.preventDefault();
 

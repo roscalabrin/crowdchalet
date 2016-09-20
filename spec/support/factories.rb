@@ -29,4 +29,9 @@ FactoryGirl.define do
     user_listing
     searching_group
   end
+  
+  factory :like do
+    user
+    group_listing
+  end
 end

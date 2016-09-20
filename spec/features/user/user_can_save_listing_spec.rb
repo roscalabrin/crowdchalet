@@ -2,9 +2,8 @@ require 'rails_helper'
 
 feature "User can save ski house listing" do
   before do
-    setup_for_omniauth
-    visit root_path
-    click_link "Login with Facebook"
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
   end
   
   scenario "user selects a listing to save to their account after doing a search" do
@@ -19,8 +18,6 @@ feature "User can save ski house listing" do
       within("#listings div:nth-child(2)") do
         expect(page).to have_button("Save")
         click_button "Save"
-        # expect(page).to have_button("Saved")
-        # expect{UserListing.count}.to change.by(1)
       end
     end
   end
