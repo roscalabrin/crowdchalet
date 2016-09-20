@@ -14,7 +14,8 @@ $(document).ready(function() {
 var SearchResult = React.createClass({
   render: function() {
     if (this.state.isUnSaved) {
-     return React.createElement("button", {onClick: this.handleClick}, "Save");
+      // return <button style={letterStyle} onClick={this.click.bind(this)}>Save</button>
+      return React.createElement("button", {onClick: this.handleClick}, "Save");
     } else {
      return React.createElement("button", {onClick: this.handleClick}, "Saved");
     }

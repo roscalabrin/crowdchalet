@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 feature "User can search for ski houses to rent" do
+  before do
+    setup_for_omniauth
+    visit root_path
+    click_link "Login with Facebook"
+  end
   scenario "user enter valid search parameters and sees a list of house listings" do
     VCR.use_cassette("#craigslist_search_ski_houses") do
       visit root_path

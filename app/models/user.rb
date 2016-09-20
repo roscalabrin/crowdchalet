@@ -20,7 +20,6 @@ class User < ApplicationRecord
   end
   
   def unsaved_listing?(listing_url)
-    # user_listings.find_by(url: listing.link).nil?
     if user_listings.find_by(url: listing_url) == nil 
       true
     elsif user_listings.find_by(url: listing_url, saved: false).nil? == false
