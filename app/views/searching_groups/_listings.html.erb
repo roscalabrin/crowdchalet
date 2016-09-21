@@ -1,7 +1,7 @@
 <table class="tables group-table">
   <thead>
     <tr>
-      <th>Potential Houses (Ranked)</th>
+      <th>Potential Houses Ranked (combines all group members rankings)</th>
     </tr>
   </thead>
   <tbody>
@@ -34,8 +34,20 @@
         <% current_user.find_rankings(@searching_group.id).each do |listing| %>
           <tr>
             <td> <%= listing.group_listing.user_listing.name %></td>
-            <td><%= listing.location %></td>
-            <td><%= listing.price %></td>
+            <td>
+              <select class="location-rank" data-user-ranking-id="<%= listing.id %>" data-initial-is-ok="<%= listing.location %>">>
+                <option value="Orange">Great</option>
+                <option value="Radish">Ok</option>
+                <option value="Cherry">Meh</option>
+            </select>
+            </td>
+            <td>
+              <select class="price-rank" data-user-ranking-id="<%= listing.id %>" data-initial-is-ok="<%= listing.price %>">>
+                <option value="Orange">Great</option>
+                <option value="Radish">Ok</option>
+                <option value="Cherry">Meh</option>
+            </select>
+            </td>
             <td> 
               <div class="like-listing" data-user-ranking-id="<%= listing.id %>" data-initial-is-unliked="<%= !listing.liked %>"></div>
             </td>
