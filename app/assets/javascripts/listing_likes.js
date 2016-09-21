@@ -10,18 +10,10 @@ $(document).ready(function() {
     )
   })
   $(".like-btn").click(function() {
-    console.log("hi");
     location.reload();
-    // $.ajax({
-    //   url: "/",
-    // })
   })
   $(".liked-btn").click(function() {
-    console.log("hi");
     location.reload();
-    // $.ajax({
-    //   url: "/",
-    // })
   })
   
 })
@@ -46,14 +38,6 @@ var LikeListing = React.createClass({
       }.bind(this),
     })
   },
-  
-
-refresh: function () {
-  console.log("hi")
-Router.dispatch(location.getCurrentPath(), null);
-},
-
-
   getInitialState: function() {
     return {isUnliked: this.props.initialIsUnliked};
   }

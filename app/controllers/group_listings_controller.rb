@@ -1,8 +1,8 @@
 class GroupListingsController < ApplicationController
-  def create    
+  def create   
     listing_id = find_listing_id
     group_listing = find_group_listing(listing_id)
-    SearchingGroup.create_associated_user_rankings(set_listing.third, group_listing)
+    SearchingGroup.create_associated_user_rankings(set_listing.third, group_listing.id)
     render json: true
   end
   

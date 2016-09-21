@@ -11,7 +11,9 @@ class SearchingGroup < ApplicationRecord
   
   def self.create_associated_user_rankings(searching_group_id, group_listing_id)
     find(searching_group_id).users.each do |user|
-      UserRanking.find_or_create_by(user_id: user.id, group_listing_id: group_listing_id, location: 0, price: 0, liked: false)
+      require "pry"
+      binding.pry
+      UserRanking.find_or_create_by(user_id: user.id, group_listing_id: group_listing_id)
     end
   end
   
