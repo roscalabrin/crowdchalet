@@ -30,7 +30,7 @@ FactoryGirl.define do
     searching_group
   end
   
-  factory :like do
+  factory :user_ranking do
     user
     group_listing
   end

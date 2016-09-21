@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919221900) do
+ActiveRecord::Schema.define(version: 20160921021859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,15 +18,9 @@ ActiveRecord::Schema.define(version: 20160919221900) do
   create_table "group_listings", force: :cascade do |t|
     t.integer "user_listing_id"
     t.integer "searching_group_id"
+    t.integer "rank_score",         default: 0
     t.index ["searching_group_id"], name: "index_group_listings_on_searching_group_id", using: :btree
     t.index ["user_listing_id"], name: "index_group_listings_on_user_listing_id", using: :btree
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer "group_listing_id"
-    t.integer "user_id"
-    t.index ["group_listing_id"], name: "index_likes_on_group_listing_id", using: :btree
-    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "searching_groups", force: :cascade do |t|
@@ -48,6 +42,16 @@ ActiveRecord::Schema.define(version: 20160919221900) do
     t.datetime "updated_at",                null: false
     t.boolean  "saved",      default: true
     t.index ["user_id"], name: "index_user_listings_on_user_id", using: :btree
+  end
+
+  create_table "user_rankings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_listing_id"
+    t.integer "location",         default: 0
+    t.integer "price",            default: 0
+    t.boolean "liked",            default: false
+    t.index ["group_listing_id"], name: "index_user_rankings_on_group_listing_id", using: :btree
+    t.index ["user_id"], name: "index_user_rankings_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,9 +77,9 @@ ActiveRecord::Schema.define(version: 20160919221900) do
 
   add_foreign_key "group_listings", "searching_groups"
   add_foreign_key "group_listings", "user_listings"
-  add_foreign_key "likes", "group_listings"
-  add_foreign_key "likes", "users"
   add_foreign_key "user_listings", "users"
+  add_foreign_key "user_rankings", "group_listings"
+  add_foreign_key "user_rankings", "users"
   add_foreign_key "users_groups", "searching_groups"
   add_foreign_key "users_groups", "users"
 end

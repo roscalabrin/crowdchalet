@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many  :user_listings
   has_many  :users_groups
   has_many  :searching_groups, through: :users_groups
+  has_many  :user_rankings
   has_many  :likes
   
   def self.from_omniauth(auth)
@@ -27,5 +28,9 @@ class User < ApplicationRecord
     else
       false
     end
+  end
+  
+  def find_rankings(searching_group)
+    user_rankings.joins(:group_listing).where(group_listings: {searching_group_id: searching_group})
   end
 end

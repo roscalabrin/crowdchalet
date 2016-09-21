@@ -1,14 +1,16 @@
 class Api::V1::LikesController < ApplicationController
   def create
-    @like = Like.find_or_create_by(group_listing_id: (params[:listing]), user_id: current_user.id)
-    render json: @like
+    @ranking = UserRanking.find(params[:listing])
+    @ranking.update(liked: true)
+    render json: @ranking
+    # @like = Like.find_or_create_by(group_listing_id: (params[:listing]), user_id: current_user.id)
+    # render json: @like
   end
   
   def destroy
-    like = set_like
-    like.delete
-    @like = set_like
-    render json: @like
+    @ranking = UserRanking.find(params[:listing])
+    @ranking.update(liked: false)
+    render json: @ranking
   end
   
   private

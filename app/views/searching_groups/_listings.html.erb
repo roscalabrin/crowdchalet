@@ -1,18 +1,39 @@
 <table class="tables group-table">
   <thead>
     <tr>
-      <th>Group Listings</th>
+      <th>Group Listings - Overall Ranking</th>
     </tr>
   </thead>
   <tbody>
-    <% @searching_group.group_listings.each do |listing| %>
+    <% @searching_group.group_listings.rank.each do |listing| %>
       <tr>
         <td> 
           <%= listing.user_listing.name %>
         </td>
         <td> 
-          <div class="like-listing"  data-group-listing-id="<%= listing.id %>" data-initial-is-unliked="<%= listing.likes.where(user_id: current_user.id).empty? %>"></div>
           <!-- <%#= react_component('LikeListing', groupListingID: listing.id, initialIsUnLiked: listing.likes.where(user_id: current_user.id).empty?) %> -->
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="tables group-table">
+  <thead>
+    <tr>
+      <th>Group Listings - My Ranking</th>
+      <th>Location</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.find_rankings(@searching_group.id).each do |listing| %>
+      <tr>
+        <td> <%= listing.group_listing.user_listing.name %></td>
+        <td><%= listing.location %></td>
+        <td><%= listing.price %></td>
+        <td> 
+          <div class="like-listing" data-user-ranking-id="<%= listing.id %>" data-initial-is-unliked="<%= !listing.liked %>"></div>
         </td>
       </tr>
     <% end %>
@@ -22,7 +43,7 @@
 <table class="tables">
   <thead>
     <tr>
-      <th>My Listings</th>
+      <th>My Saved Listings</th>
     </tr>
   </thead>
   <tbody>
