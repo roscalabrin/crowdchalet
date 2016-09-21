@@ -5,16 +5,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @searching_group.group_listings.rank.each do |listing| %>
-      <tr>
-        <td> 
-          #<%= @counter %>  -
-          <%= link_to listing.user_listing.name, listing.user_listing.url %>
-        </td>
-        <% @counter += 1 %>
-          <!-- <%#= react_component('LikeListing', groupListingID: listing.id, initialIsUnLiked: listing.likes.where(user_id: current_user.id).empty?) %> -->
-      </tr>
-    <% end %>
+    <ol>
+      <% @searching_group.group_listings.rank.each do |listing| %>
+        <tr>
+          <td> 
+            <li><%= link_to listing.user_listing.name, listing.user_listing.url %></li>
+          </td>
+            <!-- <%#= react_component('LikeListing', groupListingID: listing.id, initialIsUnLiked: listing.likes.where(user_id: current_user.id).empty?) %> -->
+        </tr>  
+      <% end %>
+    </ol>
   </tbody>
 </table>
 
@@ -31,25 +31,38 @@
         </tr>
       </thead>
       <tbody>
-        <% current_user.find_rankings(@searching_group.id).each do |listing| %>
+        <% current_user.find_rankings(@searching_group.id).each do |user_ranking| %>
           <tr>
-            <td> <%= listing.group_listing.user_listing.name %></td>
+            <td> <%= user_ranking.group_listing.user_listing.name %></td>
             <td>
-              <select class="location-rank" data-user-ranking-id="<%= listing.id %>" data-initial-is-ok="<%= listing.location %>">>
-                <option value="Orange">Great</option>
-                <option value="Radish">Ok</option>
-                <option value="Cherry">Meh</option>
-            </select>
+              <div class="dropdown">
+                <div class="dropdown-container">
+                  <p class="dropdown-description"> <%= user_ranking.location_rank %></p>
+                  <p class="dropdown-button">Click to Change</p>
+                  <ul class="dropdown-menu dropdown-select">
+                    <li>Great</li>
+                    <li>Ok</li>
+                    <li>Meh</li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+      
+            <td>
+              <div class="dropdown">
+                <div class="dropdown-container">
+                  <p class="dropdown-description"> <%= user_ranking.price_rank %></p>
+                  <p class="dropdown-button">Click to Change</p>
+                  <ul class="dropdown-menu dropdown-select">
+                    <li>Great</li>
+                    <li>Ok</li>
+                    <li>Meh</li>
+                  </ul>
+                </div>
+              </div>
             </td>
             <td>
-              <select class="price-rank" data-user-ranking-id="<%= listing.id %>" data-initial-is-ok="<%= listing.price %>">>
-                <option value="Orange">Great</option>
-                <option value="Radish">Ok</option>
-                <option value="Cherry">Meh</option>
-            </select>
-            </td>
-            <td> 
-              <div class="like-listing" data-user-ranking-id="<%= listing.id %>" data-initial-is-unliked="<%= !listing.liked %>"></div>
+              <div class="like-listing" data-user-ranking-id="<%= user_ranking.id %>" data-initial-is-unliked="<%= !user_ranking.liked %>"></div>
             </td>
           </tr>
         <% end %>

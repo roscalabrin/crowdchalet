@@ -8,4 +8,16 @@ class UserRanking < ApplicationRecord
       user_ranking.delete
     end
   end
+  
+  def location_rank
+    return "Great" if location == 1
+    return "OK"    if location == 0
+    return "Meh"   if location == -1
+  end
+
+  def price_rank
+    return "Great" if location == 1
+    return "OK"    if location == 0
+    return "Meh"   if location == -1
+  end
 end

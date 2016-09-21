@@ -16,7 +16,7 @@ class HouseFinder
     return  avg_price, houses
   end
   
-  def house_info(houses)
+  def house_info(houses) #create house_listings
     houses.map do |house|
       house_path = house.attributes["href"].value
       HouseListing.new(
@@ -26,7 +26,7 @@ class HouseFinder
     end 
   end
   
-  def average_price(houses)
+  def average_price(houses) # create PORO for search stats
     selected_prices = houses.map do |house|
       house.children.text.split("$").second.to_i
     end

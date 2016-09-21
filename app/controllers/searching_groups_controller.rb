@@ -12,16 +12,16 @@ class SearchingGroupsController < ApplicationController
     @searching_group.update(group_leader: current_user.id)
     if @searching_group.save
       create_users_group
+      # UsersGroup.create_groups(@searching_group, current_user.id)
     else
       flash[:failure] = @searching_group.errors.full_messages.join(', ')
       redirect_to new_searhing_group_path
     end
   end
   
-  def show
+  def show #presenter
     @searching_group = SearchingGroup.find(params[:id])
     @member = UsersGroup.where(user_id: current_user.id, searching_group_id: @searching_group.id)
-    @counter = 1
   end
   
   private
