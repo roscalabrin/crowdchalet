@@ -1,0 +1,8 @@
+.save-btn {
+  > .save-btn {
+    background-color: red;
+  }
+  > .saved-btn {
+    background-color: black;
+  }
+}

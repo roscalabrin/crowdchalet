@@ -9,14 +9,28 @@ $(document).ready(function() {
       element
     )
   })
+  $(".add-btn").click(function() {
+    console.log("hi");
+    location.reload();
+    // $.ajax({
+    //   url: "/",
+    // })
+  })
+  $(".remove-btn").click(function() {
+    console.log("hi");
+    location.reload();
+    // $.ajax({
+    //   url: "/",
+    // })
+  })
 })
 
 var AddToGroup = React.createClass({
   render: function() {
     if (this.state.isNotAdded) {
-     return React.createElement("button", {onClick: this.handleClick}, "Add to Group");
+     return React.createElement("button", {className: "add-btn", onClick: this.handleClick}, "Add to Group");
     } else {
-     return React.createElement("button", {onClick: this.handleClick}, "Remove from Group");
+     return React.createElement("button", {className: "remove-btn", onClick: this.handleClick}, "Remove from Group");
     }
   },
   handleClick: function() {
