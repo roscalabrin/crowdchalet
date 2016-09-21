@@ -11,8 +11,8 @@ feature "User can search for ski houses to rent" do
       visit root_path
       
       click_link "Search Ski Houses"
-      fill_in "max_price", with: "2000"
       fill_in "location",  with: "Frisco"
+      fill_in "max_price", with: "2000"
       click_button "Find"
       
       within(".search-results") do

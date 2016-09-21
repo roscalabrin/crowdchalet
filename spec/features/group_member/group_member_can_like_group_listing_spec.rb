@@ -14,10 +14,10 @@ feature "Group member can like a listing from the group" do
 
     visit searching_group_path(group)
     
-    within(".group-table") do
-      #expect page to have listing with the "like" button
-      #user click on like button 
-      #expect button to be "Liked"
-    end
+    # within(".group-table") do
+    #   #expect page to have listing with the "like" button
+    #   #user click on like button 
+    #   #expect button to be "Liked"
+    # end
   end
 end

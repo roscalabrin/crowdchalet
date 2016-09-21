@@ -7,7 +7,7 @@ RSpec.describe Api::V1::LikesController, type: :request do
   end
   
   describe "POST #create" do
-    it "creates a like associated to a specific user and a group listing " do
+    xit "creates a like associated to a specific user and a group listing " do
       user          = User.last
       group         = create(:searching_group, group_leader: user.id)
       listing       = create(:user_listing)
@@ -25,7 +25,7 @@ RSpec.describe Api::V1::LikesController, type: :request do
   end
     
   describe "DELETE #destroy" do
-    it "deletes a like associated to a specific user and a group listing " do
+    xit "deletes a like associated to a specific user and a group listing " do
       user          = User.last
       group         = create(:searching_group, group_leader: user.id)
       listing       = create(:user_listing)
