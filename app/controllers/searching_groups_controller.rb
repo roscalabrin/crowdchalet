@@ -21,6 +21,7 @@ class SearchingGroupsController < ApplicationController
   def show
     @searching_group = SearchingGroup.find(params[:id])
     @member = UsersGroup.where(user_id: current_user.id, searching_group_id: @searching_group.id)
+    @counter = 1
   end
   
   private

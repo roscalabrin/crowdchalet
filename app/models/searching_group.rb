@@ -8,4 +8,18 @@ class SearchingGroup < ApplicationRecord
   has_many :users_groups
   has_many :users, through: :users_groups
   has_many :group_listings
+  
+  def self.create_associated_user_rankings(searching_group_id, group_listing_id)
+    find(searching_group_id).users.each do |user|
+      UserRanking.find_or_create_by(user_id: user.id, group_listing_id: group_listing_id, location: 0, price: 0, liked: false)
+    end
+  end
+  
+  def listing_added?(listing_id)
+    if group_listings.where(user_listing_id: listing_id).empty?
+      false
+    else
+      true
+    end 
+  end
 end

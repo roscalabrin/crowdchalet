@@ -1,19 +1,30 @@
 class GroupListingsController < ApplicationController
-  def create
-    listing_name = params[:listing].split("|").first
-    listing_url = params[:listing].split("|").second
-    group_id = params[:listing].split("|").third
-    
-    listing_id = UserListing.find_by(name: listing_name, url: listing_url, user_id: current_user.id).id
-    
-    group_listing = GroupListing.find_or_create_by(user_listing_id: listing_id, searching_group_id: group_id)
-    
-    SearchingGroup.find(group_id).users.each do |user|
-      UserRanking.find_or_create_by(user_id: user.id, group_listing_id: group_listing.id, location: 0, price: 0, liked: false)
-    end
-    #update attribute to de display true
+  def create    
+    listing_id = find_listing_id
+    group_listing = find_group_listing(listing_id)
+    SearchingGroup.create_associated_user_rankings(set_listing.third, group_listing)
+    render json: true
   end
   
   def destroy
+    listing_id = find_listing_id
+    group_listing = find_group_listing(listing_id)
+    UserRanking.remove_associated(group_listing.id)
+    group_listing.delete
+    render json: false
   end
+  
+  private
+  
+    def set_listing
+      params[:listing].split("|")
+    end
+    
+    def find_listing_id
+      UserListing.find_by(name: set_listing.first, url: set_listing.second, user_id: current_user.id).id
+    end
+    
+    def find_group_listing(listing_id)
+      GroupListing.find_or_create_by(user_listing_id: listing_id, searching_group_id: set_listing.third)
+    end
 end

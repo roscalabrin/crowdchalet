@@ -1,62 +1,77 @@
 <table class="tables group-table">
   <thead>
     <tr>
-      <th>Group Listings - Overall Ranking</th>
+      <th>Potential Houses (Ranked)</th>
     </tr>
   </thead>
   <tbody>
     <% @searching_group.group_listings.rank.each do |listing| %>
       <tr>
         <td> 
-          <%= listing.user_listing.name %>
+          #<%= @counter %>  -
+          <%= link_to listing.user_listing.name, listing.user_listing.url %>
         </td>
-        <td> 
+        <% @counter += 1 %>
           <!-- <%#= react_component('LikeListing', groupListingID: listing.id, initialIsUnLiked: listing.likes.where(user_id: current_user.id).empty?) %> -->
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<table class="tables group-table">
-  <thead>
-    <tr>
-      <th>Group Listings - My Ranking</th>
-      <th>Location</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% current_user.find_rankings(@searching_group.id).each do |listing| %>
-      <tr>
-        <td> <%= listing.group_listing.user_listing.name %></td>
-        <td><%= listing.location %></td>
-        <td><%= listing.price %></td>
-        <td> 
-          <div class="like-listing" data-user-ranking-id="<%= listing.id %>" data-initial-is-unliked="<%= !listing.liked %>"></div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</br>
+<div class="expander">
+  <a href="javascript:void(0)" class="expander-trigger expander-hidden">Rank Potential Houses</a>
+  <div class="expander-content">
+    <table class="tables group-table">
+      <thead>
+        <tr>
+          <th>Potential Houses</th>
+          <th>Rank Location</th>
+          <th>Rank Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_user.find_rankings(@searching_group.id).each do |listing| %>
+          <tr>
+            <td> <%= listing.group_listing.user_listing.name %></td>
+            <td><%= listing.location %></td>
+            <td><%= listing.price %></td>
+            <td> 
+              <div class="like-listing" data-user-ranking-id="<%= listing.id %>" data-initial-is-unliked="<%= !listing.liked %>"></div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</br>
+<div class="expander">
+  <a href="javascript:void(0)" class="expander-trigger expander-hidden">Add Houses to this Group</a>
+  <div class="expander-content">
+    <table class="tables">
+      <thead>
+        <tr>
+          <th>My Saved Listings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @current_user.saved_listings.each do |listing| %>
+          <tr>
+          <td> 
+            <%= listing.name %>
+          </td>
+          <td> 
+            <!-- <button name="button-add-to-group" class="add-to-group" value="<%= listing.name%>|<%#= listing.url%>|<%#=@searching_group.id %>">Add to Group</button> -->
+      
+            <div class="add-to-group" data-listing="<%= listing.name%>|<%= listing.url%>|<%=@searching_group.id %>" data-initial-is-not-added="<%= !@searching_group.listing_added?(listing.id) %>"></div>
+          </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<table class="tables">
-  <thead>
-    <tr>
-      <th>My Saved Listings</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @current_user.saved_listings.each do |listing| %>
-      <tr>
-      <td> 
-        <%= listing.name %>
-      </td>
-      <td> 
-        <button name="button-add-to-group" class="add-btn" value="<%= listing.name%>|<%= listing.url%>|<%=@searching_group.id %>">Add to Group</button>
-      </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
 

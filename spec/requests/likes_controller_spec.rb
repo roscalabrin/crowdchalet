@@ -30,7 +30,6 @@ RSpec.describe Api::V1::LikesController, type: :request do
       group         = create(:searching_group, group_leader: user.id)
       listing       = create(:user_listing)
       group_listing = create(:group_listing, user_listing_id: listing.id, searching_group_id: group.id)
-      like          = create(:like, user_id: user.id, group_listing_id: group_listing.id )
       
       delete "/api/v1/likes", {:listing => "#{group_listing.id}"}
 
