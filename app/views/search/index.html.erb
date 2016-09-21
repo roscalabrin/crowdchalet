@@ -1,13 +1,15 @@
 <div class="search-results">
   <h2>Search Results</h2>
-  <p class="search-results-count"><%= @results.count%> listings found </p>
+  <p class="search-results-count"><%= @results.second.count%> listings found </p>
+  <strong><p class="search-results-count">Average Price: $<%= @results.first%></p></strong>
   <hr>
 
   <div id="listings">
-    <% @results.map do |listing| %>
+    <% @results.second.map do |listing| %>
       <div class="listing-info">
         <p><span class="listing-name"><%= listing.name %></span>
-        </br><a href="#{listing.link}" class="listing-link"><%= listing.link %></a></p>
+        </br>
+        <p><%= link_to listing.link, listing. link, class: "listing-link" %></p>
       </div>
       <div class="save-listing">
         <div class="save-btn"  data-listing="<%= listing.name%>|<%= listing.link %>" data-initial-is-unsaved="<%= current_user.unsaved_listing?(listing.link)  %>"></div>
