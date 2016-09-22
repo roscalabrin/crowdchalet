@@ -7,36 +7,36 @@ RSpec.describe LikesController, type: :request do
   end
   
   describe "POST #create" do
-    xit "creates a like associated to a specific user and a group listing " do
+    it "updates the liked attribute of a group listing to be true" do
       user          = User.last
-      group         = create(:searching_group, group_leader: user.id)
-      listing       = create(:user_listing)
-      group_listing = create(:group_listing, user_listing_id: listing.id, searching_group_id: group.id)
+      group_listing = create(:group_listing)
+      user_ranking = create(:user_ranking, user_id: user.id, group_listing_id: group_listing.id, liked: false)
       
-      post "/likes", {:listing => "#{group_listing.id}"}
+      post "/likes", {:listing => "#{user_ranking.id}"}
 
       expect(response).to be_success
 
       content = JSON.parse(response.body)
-    
-      expect(content["group_listing_id"]).to eq(group_listing.id)
-      expect(content["user_id"]).to eq(user.id)
+
+      expect(content["id"]).to eq(user_ranking.id)
+      expect(content["liked"]).to eq true
     end
   end
     
   describe "DELETE #destroy" do
-    xit "deletes a like associated to a specific user and a group listing " do
+    it "updates the liked attribute of a group listing to be true" do
       user          = User.last
-      group         = create(:searching_group, group_leader: user.id)
-      listing       = create(:user_listing)
-      group_listing = create(:group_listing, user_listing_id: listing.id, searching_group_id: group.id)
+      group_listing = create(:group_listing)
+      user_ranking = create(:user_ranking, user_id: user.id, group_listing_id: group_listing.id, liked: true)
       
-      delete "/likes", {:listing => "#{group_listing.id}"}
+      delete "/likes", {:listing => "#{user_ranking.id}"}
 
       expect(response).to be_success
 
       content = JSON.parse(response.body)
-      expect(content).to eq nil
+
+      expect(content["id"]).to eq(user_ranking.id)
+      expect(content["liked"]).to eq false
     end
   end
 end

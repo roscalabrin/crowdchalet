@@ -10,10 +10,4 @@ class LikesController < ApplicationController
     @ranking.update(liked: false)
     render json: @ranking
   end
-  
-  private
-  
-    def set_like
-      Like.find_by(group_listing_id: (params[:listing]), user_id: current_user.id)
-    end
 end

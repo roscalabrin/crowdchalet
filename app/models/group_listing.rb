@@ -19,7 +19,7 @@ class GroupListing < ApplicationRecord
   
   def create_initial_user_rankings
     searching_group.users.each do |user|
-      user.user_rankings.create(user_id: user.id, group_listing_id: self.id)
+      user.user_rankings.create(group_listing_id: self.id)
     end
   end
 end

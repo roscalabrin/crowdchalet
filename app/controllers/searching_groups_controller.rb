@@ -12,7 +12,7 @@ class SearchingGroupsController < ApplicationController
     @searching_group.update(group_leader: current_user.id)
     if @searching_group.save
       @searching_group.create_user_group(current_user.id)
-      success
+      redirect_to @searching_group
     else
       failure
     end
@@ -33,11 +33,6 @@ class SearchingGroupsController < ApplicationController
       :max_number_of_people,
       :max_budget_per_month
     )
-  end
-  
-  def success
-    flash.now[:sucess] = "You have successfully created the #{@searching_group.name} group!"
-    redirect_to @searching_group
   end
   
   def failure

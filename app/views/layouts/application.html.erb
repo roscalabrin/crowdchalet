@@ -11,7 +11,8 @@
   <%= render partial: "shared/navbar" %>
   <div class="space-box">
   </div> 
-    
+    <%= flash.now[:success] %>
+    <%= flash[:failure] %>
     <%= yield %>
   
     <div class="space-box">

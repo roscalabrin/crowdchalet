@@ -28,6 +28,7 @@ FactoryGirl.define do
   factory :group_listing do
     user_listing
     searching_group
+    rank_score 1
   end
   
   factory :user_ranking do
