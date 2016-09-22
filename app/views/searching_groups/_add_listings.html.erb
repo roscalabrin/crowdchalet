@@ -14,7 +14,7 @@
             <%= listing.name %>
           </td>
           <td> 
-            <div class="add-to-group" data-listing="<%= listing.name%>|<%= listing.url%>|<%=@searching_group.id %>" data-initial-is-not-added="<%= !@searching_group.listing_added?(listing.id) %>"></div>
+            <div class="add-to-group" data-listing="<%= listing.name%>|<%= listing.url%>|<%=@presenter.searching_group.id %>" data-initial-is-not-added="<%= !@presenter.searching_group.listing_added?(listing.id) %>"></div>
           </td>
           </tr>
         <% end %>

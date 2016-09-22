@@ -7,7 +7,7 @@ feature "User can create a searching group" do
   scenario "a group is created with all the required information" do
     visit root_path
     click_link "Login with Facebook"
-    click_link "Create a Group"
+    click_link "CREATE A GROUP"
     fill_in 'Name',                 with: "Winter 2016"
     fill_in 'Description',          with: "We love to ski."
     fill_in 'Location',             with: "Vail"
@@ -26,7 +26,7 @@ feature "User can create a searching group" do
   scenario "a group is not created with invalid information" do
     visit root_path
     click_link "Login with Facebook"
-    click_link "Create a Group"
+    click_link "CREATE A GROUP"
     fill_in 'Name',                 with: "Winter 2016"
     fill_in 'Description',          with: "We love to ski."
     fill_in 'Max number of people', with: 6

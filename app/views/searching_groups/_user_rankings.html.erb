@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <% current_user.find_rankings(@searching_group.id).each do |user_ranking| %>
+        <% current_user.find_rankings(@presenter.searching_group.id).each do |user_ranking| %>
           <tr>
             <td> <%= user_ranking.group_listing.user_listing.name %></td>
             <td>

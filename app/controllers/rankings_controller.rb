@@ -1,5 +1,6 @@
 class RankingsController < ApplicationController
-  
+ include RankingsHelper  
+ 
   def create
     if rank_attribute == "location"
       find_user_listing.update(location: choice_value)
@@ -17,12 +18,6 @@ class RankingsController < ApplicationController
     
     def rank_choice
       params[:rank].split("|").second
-    end
-    
-    def choice_value
-      return 1  if rank_choice == "great"
-      return 0  if rank_choice == "ok"
-      return -1 if rank_choice == "meh"
     end
     
     def find_user_listing

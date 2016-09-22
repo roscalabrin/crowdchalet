@@ -1,40 +1,14 @@
 <div class="vertical-tabs-container">
-  <div class="vertical-tabs">
-    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab is-active" rel="tab1">Profile Information</a>
-    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab2">Groups</a>
-    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab3">Saved Listings</a>
-    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab4">Notifications</a>
-  </div>
-
-  <div class="vertical-tab-content-container">
-    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">Profile Information</a>
-    <div id="tab1" class="js-vertical-tab-content vertical-tab-content">
-      <%#= image_tag(@user.image, class: "profile-picture", alt: "profile picture") %>
-      <h2><%= @user.name %><h2>
-      </p><%= @user.email %></p>
+    <div class="vertical-tabs">
+        <a href="javascript:void(0)" class="js-vertical-tab vertical-tab is-active" rel="tab1">Profile Information</a>
+        <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab2">Groups</a>
+        <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab3">Saved Listings</a>
+        <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab4">Notifications</a>
     </div>
-
-    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">Groups</a>
-    <div id="tab2" class="js-vertical-tab-content vertical-tab-content">
-      <p>
-      <%= render partial: "user_groups"%>
-      </p>
-    </div>
-    
-    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab3">Saved Listings</a>
-    <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
-      <% @user.saved_listings.each do |listing| %>
-        <div class="">
-          <p><strong><%= listing.name %></strong></p>
-          <p> <%= link_to listing.url, listing.url %>
-        </div>
-      <% end %>
-    </div>
-
-    <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">Notifications</a>
-    <div id="tab4" class="js-vertical-tab-content vertical-tab-content">
-      </p>Requests</p>
-      </p>Invitations</p>
+    <%= render partial: "profile_info"%>
+    <%= render partial: "groups"%>
+    <%= render partial: "saved_listings"%>  
+    <%= render partial: "notifications"%>            
     </div>
   </div>
 </div>
@@ -42,5 +16,3 @@
 </br>
 </br>
 </br>
-
-

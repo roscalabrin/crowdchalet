@@ -18,9 +18,8 @@ class SearchingGroupsController < ApplicationController
     end
   end
   
-  def show #presenter
-    @searching_group = SearchingGroup.find(params[:id])
-    @member = UsersGroup.where(user_id: current_user.id, searching_group_id: @searching_group.id)
+  def show
+    @presenter = GroupShowPresenter.new(params[:id], current_user.id)
   end
   
   private

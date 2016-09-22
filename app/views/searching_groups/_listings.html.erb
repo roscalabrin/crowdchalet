@@ -6,7 +6,7 @@
   </thead>
   <tbody>
     <ol>
-      <% @searching_group.group_listings.rank.each do |listing| %>
+      <% @presenter.searching_group.group_listings.rank.each do |listing| %>
         <tr>
           <td> 
             <li><%= link_to listing.user_listing.name, listing.user_listing.url %></li>

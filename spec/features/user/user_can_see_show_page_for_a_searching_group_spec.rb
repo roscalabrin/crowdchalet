@@ -10,7 +10,7 @@ describe "User can see individual page for a searching group" do
   scenario "User clicks on a group from the group index page and sees all the detailed info of a group they are not a member of" do
     group = create(:searching_group)
     
-    click_link "Join a Group"
+    click_link "JOIN A GROUP"
     click_link "Denver Couples: Winter 2016"
 
     expect(current_path).to eq(searching_group_path(group))
@@ -28,7 +28,7 @@ describe "User can see individual page for a searching group" do
     group2 = create(:searching_group, name: "Weekend Warriors", group_leader: user.id)
     create(:users_group, user_id: user.id, searching_group_id: group2.id)
 
-    click_link "Join a Group"
+    click_link "JOIN A GROUP"
     click_link "Weekend Warriors"
     
     expect(current_path).to eq(searching_group_path(group2))
@@ -40,10 +40,5 @@ describe "User can see individual page for a searching group" do
     expect(page).to have_content "Missing"
 
     expect(page).to_not have_button "Request to Join"
-    
-    # within(".group-member-view") do
-    #   expect(page).to have_content "Me Saved Listings"
-    #   expect(page).to have_content "Group Listings"
-    # end
   end
 end

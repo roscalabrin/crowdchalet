@@ -3,23 +3,23 @@
   <div class="side-image">
     <div class="images-wrapper"></div>
       <div class="side-image-content">
-        <h4><%= @searching_group.location %></h4>
-        <h1><h1> <%= @searching_group.name %></h1></h1>
-        <p><%= @searching_group.description %></p>
+        <h4><%= @presenter.searching_group.location %></h4>
+        <h1><h1> <%= @presenter.searching_group.name %></h1></h1>
+        <p><%= @presenter.searching_group.description %></p>
         <div class="stats">
           <ul>
-            <li><%= @searching_group.max_number_of_people %><span>Max number of people</span></li>
-            <li> <%= @searching_group.number_of_people_missing %><span>Missing</span></li>
+            <li><%= @presenter.searching_group.max_number_of_people %><span>Max number of people</span></li>
+            <li> <%= @presenter.searching_group.number_of_people_missing %><span>Missing</span></li>
             <li><span></span></li>
           </ul>
         </div>
-        <% if @member.empty? %>
+        <% if @presenter.member.empty? %>
           <p><%= button_to "Request to Join" %></p>
         <% end %>
     </div>
   </div>
 
-  <% if @member.empty? == false %>
+  <% if @presenter.member.empty? == false %>
     <%= render partial: "listings" %>
   <% end %>
 </div>

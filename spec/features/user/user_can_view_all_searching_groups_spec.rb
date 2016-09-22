@@ -8,7 +8,7 @@ feature "User sees all searching groups" do
   scenario "user visits the page with all the exisint searching groups" do
     visit root_path
   
-    click_link "Join a Group"
+    click_link "JOIN A GROUP" 
     expect(current_path).to eq searching_groups_path
   end
 end
