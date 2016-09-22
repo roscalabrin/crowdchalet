@@ -13,8 +13,12 @@
             <li><span></span></li>
           </ul>
         </div>
+        </br>
+        </br>
         <% if @presenter.member.empty? %>
-          <p><%= button_to "Request to Join" %></p>
+          <div class="request-btn">
+             <p id="request-text">Request to Join</p>
+          </div>
         <% end %>
     </div>
   </div>

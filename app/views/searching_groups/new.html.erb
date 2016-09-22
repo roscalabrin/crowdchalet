@@ -1,18 +1,30 @@
-<h1>New Searching Group</h1>
-<div class="search-tools">
-  <div class="filters">
-      <%= form_for @searching_group do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %><br />
-        <%= f.label :description %>
-        <%= f.text_field :description %><br />
-        <%= f.label :location %>
-        <%= f.text_field :location %><br />
-        <%= f.label :max_number_of_people %>
-        <%= f.text_field :max_number_of_people %><br />
-        <%= f.label :max_budget_per_month %>  
-        <%= f.text_field :max_budget_per_month %><br />
-        <%= f.submit "Create Group" %>
-      <% end %>
+<% if current_user %>
+  <h1>New Searching Group</h1>
+  <div class="search-tools">
+    <div class="filters">
+        <%= form_for @searching_group do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %><br />
+          <%= f.label :description %>
+          <%= f.text_field :description %><br />
+          <%= f.label :location %>
+          <%= f.text_field :location %><br />
+          <%= f.label :max_number_of_people %>
+          <%= f.text_field :max_number_of_people %><br />
+          <%= f.label :max_budget_per_month %>  
+          <%= f.text_field :max_budget_per_month %><br />
+          <%= f.submit "Create Group" %>
+        <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  </br>
+  </br>
+  </br>
+  </br>
+  <h1>You need to <%= link_to "login", facebook_login_path %> before creating a group</h1>
+  </br>
+  </br>
+  </br>
+  </br>
+<% end %>

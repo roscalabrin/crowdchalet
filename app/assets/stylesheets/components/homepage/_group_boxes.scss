@@ -38,14 +38,14 @@ a.box-title {
   
   > .create-group-box {
     @include span-columns(6);
-    background-image: url("create_group.jpg");
+    background-image: asset-url("create_group.jpg");
     opacity: 0.6;
     height: $hover-tile-height;
     margin-bottom: 5%;
   }
   > .join-group-box {
     @include span-columns(6);
-    background-image: url("join_group.jpg");
+    background-image: asset-url("join_group.jpg");
     opacity: 0.6;
     height: $hover-tile-height;
     margin-bottom: 5%;
