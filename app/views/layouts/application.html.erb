@@ -11,13 +11,12 @@
   <%= render partial: "shared/navbar" %>
   <div class="space-box">
   </div> 
-  <%#= render "flashes" %> 
     
     <%= yield %>
-    <%= javascript_include_tag 'application' %>
-    <%#= render "javascript" %>
+  
     <div class="space-box">
     </div> 
+    <%= javascript_include_tag 'application' %>
   </body>
 
   <footer class="footer" role="contentinfo">
