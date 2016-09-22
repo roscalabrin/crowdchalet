@@ -1,4 +1,4 @@
-class RankLocationsController < ApplicationController
+class RankingsController < ApplicationController
   
   def create
     if rank_attribute == "location"
@@ -6,16 +6,17 @@ class RankLocationsController < ApplicationController
     else
       find_user_listing.update(price: choice_value)
     end
+    render json: @user_ranking
   end
   
   private
   
     def rank_attribute
-      group_listing_id = params[:rank].split("|").first
+      params[:rank].split("|").first
     end
     
     def rank_choice
-      group_listing_id = params[:rank].split("|").second
+      params[:rank].split("|").second
     end
     
     def choice_value
@@ -25,7 +26,7 @@ class RankLocationsController < ApplicationController
     end
     
     def find_user_listing
-      group_listing_id = params[:rank].split("|").third
-      UserRanking.find(group_listing_id)    
+      user_ranking_id = params[:rank].split("|").third
+      @user_ranking = UserRanking.find(user_ranking_id)    
     end
 end

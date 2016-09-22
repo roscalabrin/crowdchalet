@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :likes,          only: [:create]
   delete 'likes', to: 'likes#destroy'
   
-  resources :rank_locations, only: [:create]
+  resources :rankings, only: [:create]
   
   resources :group_listings, only: [:create]
   delete 'group_listings',   to: 'group_listings#destroy'
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   
   get '/auth/facebook',          as: :facebook_login
   get '/auth/facebook/callback', to: 'sessions#create'
-  get '/auth/failure',           to: redirect('/') 
+  get '/auth/failure',           to:  redirect('/') 
   delete 'logout',               to: 'sessions#destroy'
 end
