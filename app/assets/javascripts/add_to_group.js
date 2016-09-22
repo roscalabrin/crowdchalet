@@ -27,7 +27,6 @@ var AddToGroup = React.createClass({
   },
   handleClick: function() {
     var method = this.state.isNotAdded ? "POST" : "DELETE";
-    debugger
     $.ajax({
       url: "/group_listings",
       type: method,

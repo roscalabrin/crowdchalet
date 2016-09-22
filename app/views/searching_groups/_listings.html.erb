@@ -37,13 +37,14 @@
             <td>
               <div class="dropdown">
                 <div class="dropdown-container">
-                  <p class="dropdown-description"> <%= user_ranking.location_rank %></p>
-                  <p class="dropdown-button">Click to Change</p>
-                  <ul class="dropdown-menu dropdown-select">
-                    <li>Great</li>
-                    <li>Ok</li>
-                    <li>Meh</li>
-                  </ul>
+                  <p > <%= user_ranking.location_rank %></p>
+                  
+                  <select class="dropdown-location">Click to Change
+                    <option value="option1" selected="selected">Click to Change</option>
+                    <option value="great<%= user_ranking.group_listing.user_listing.id %>">Great</option>
+                    <option value="ok">Ok</option>
+                    <option value="meh">Meh</option>
+                  </select>
                 </div>
               </div>
             </td>

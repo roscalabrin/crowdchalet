@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::LikesController, type: :request do
+RSpec.describe LikesController, type: :request do
   before do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -13,7 +13,7 @@ RSpec.describe Api::V1::LikesController, type: :request do
       listing       = create(:user_listing)
       group_listing = create(:group_listing, user_listing_id: listing.id, searching_group_id: group.id)
       
-      post "/api/v1/likes", {:listing => "#{group_listing.id}"}
+      post "/likes", {:listing => "#{group_listing.id}"}
 
       expect(response).to be_success
 
@@ -31,7 +31,7 @@ RSpec.describe Api::V1::LikesController, type: :request do
       listing       = create(:user_listing)
       group_listing = create(:group_listing, user_listing_id: listing.id, searching_group_id: group.id)
       
-      delete "/api/v1/likes", {:listing => "#{group_listing.id}"}
+      delete "/likes", {:listing => "#{group_listing.id}"}
 
       expect(response).to be_success
 

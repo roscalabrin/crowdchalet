@@ -9,4 +9,18 @@ $(document).ready(function() {
       $button.html($(this).html());
     });
   });
+  
+  $( ".dropdown-location" ).change(function() {
+    console.log($( this ).val() );
+    var params = {
+      location: {
+        rank: $( this ).val()
+      }
+    }
+    $.ajax({
+      url: "/rank_locations",
+      data: params,
+      type: "post"
+    })
+  });
 });

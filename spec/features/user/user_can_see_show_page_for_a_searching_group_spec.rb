@@ -18,7 +18,7 @@ describe "User can see individual page for a searching group" do
     expect(page).to have_content "Vail"
     expect(page).to have_content "12"
     expect(page).to have_content "Max number of people"
-    expect(page).to have_content "4"
+    expect(page).to have_content "12"
     expect(page).to have_content "Missing"
     expect(page).to have_button "Request to Join"
   end
@@ -36,7 +36,7 @@ describe "User can see individual page for a searching group" do
     expect(page).to have_content "Vail"
     expect(page).to have_content "12"
     expect(page).to have_content "Max number of people"
-    expect(page).to have_content "4"
+    expect(page).to have_content "11"
     expect(page).to have_content "Missing"
 
     expect(page).to_not have_button "Request to Join"

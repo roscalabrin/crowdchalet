@@ -1,4 +1,4 @@
-class Api::V1::LikesController < ApplicationController
+class LikesController < ApplicationController
   def create
     @ranking = UserRanking.find(params[:listing])
     @ranking.update(liked: true)

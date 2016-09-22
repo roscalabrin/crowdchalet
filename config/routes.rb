@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
   root to: 'home#index'
   
-  namespace :api, defaults: {format: :json} do
-    namespace :v1 do
-        resources :likes,          only: [:create]
-        delete 'likes', to: 'likes#destroy'
-    end
-  end
-
+  resources :likes,          only: [:create]
+  delete 'likes', to: 'likes#destroy'
+  
+  resources :rank_locations, only: [:update]
+  
   resources :group_listings, only: [:create]
   delete 'group_listings',   to: 'group_listings#destroy'
+  
   resources :user_listings,  only: [:create]
   delete 'user_listings',    to: 'user_listings#destroy'
   

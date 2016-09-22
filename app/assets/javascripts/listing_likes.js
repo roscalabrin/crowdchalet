@@ -30,7 +30,7 @@ var LikeListing = React.createClass({
     var method = this.state.isUnliked ? "POST" : "DELETE";
     console.log(this.props.userRankingID);
     $.ajax({
-      url: "/api/v1/likes",
+      url: "/likes",
       type: method,
       data: {listing: this.props.userRankingID},
       success: function(response){
