@@ -1,9 +1,23 @@
 .search-results {
   @include outer-container;
   
+  
   span {
     font-weight: 600;
   }
+}
+
+.search-results-count {
+  color: #1F2426;
+}
+
+.search-results-count-price {
+  color: #A5400B;
+  font-weight: 800;
+}
+
+.listing-link {
+  color: #A5400B;
 }
 
 #listings {
@@ -20,4 +34,8 @@
     @include omega();
     margin-top: 2%;
   }
+}
+
+.filter .trigger {
+  background-color: #A5400B;
 }

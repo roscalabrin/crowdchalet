@@ -1,8 +1,44 @@
 .save-btn {
   > .save-btn {
-    background-color: red;
+    background-color: #259DA6;
+    width: 15%;
   }
   > .saved-btn {
-    background-color: black;
+    background-color: #F77705;
+    width: 15%
   }
+}
+
+.add-btn {
+  background-color: #F77705;
+  width: 10px;
+}
+.add-btn:hover {
+  background-color: #1F2426;
+}
+
+.remove-btn {
+  background-color: #259DA6;
+  width: 10px;
+}
+
+.remove-btn:hover {
+  background-color: #1F2426;
+}
+
+.like-btn {
+  background-color: #0D48A1; 
+  width: 10px;
+}
+
+.like-btn:hover {
+  background-color: #0D48A1; 
+}
+
+.liked-btn {
+  background-color: #B20975;
+}
+
+.liked-btn:hover {
+  background-color: #B20975;
 }

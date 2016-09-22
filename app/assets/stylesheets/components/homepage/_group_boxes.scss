@@ -6,8 +6,8 @@
 }
 
 .home-title-words {
-  color: #C2E078;
-  font-weight: 2em;
+  color: #259DA6;
+  font-weight: 4em;
   font-size: 1.5em;
 }
 
@@ -17,6 +17,12 @@
   padding: 2em 2em 3em 2em;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+}
+
+a.box-title {
+  color: #1F2426;
+  font-weight: 1200;
+  font-size: 2em;
 }
 
 .group-boxes {
@@ -32,14 +38,15 @@
   
   > .create-group-box {
     @include span-columns(6);
-    // background-image: url(/assets/vail.jpg);
-    background-color: #EEE;
+    background-image: url(/assets/create_group.jpg);
+    opacity: 0.6;
     height: $hover-tile-height;
     margin-bottom: 5%;
   }
   > .join-group-box {
     @include span-columns(6);
-    background-color: #EEE;
+    background-image: url(/assets/join_group.jpg);
+    opacity: 0.6;
     height: $hover-tile-height;
     margin-bottom: 5%;
   }
@@ -107,8 +114,6 @@
     }
 
     .flex-title {
-      color: $flex-box-color;
-      font-size: 1.2em;
       margin-bottom: 0.5em;
     }
 

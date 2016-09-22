@@ -3,7 +3,7 @@
   <a href="<%= searching_group_path(group) %>" class="grid-item">
     <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png" alt="">
     <h1><%= group.name %></h1>
-    <p> <%= group.max_number_of_people %> People | Missing: x </p>
+    <p> <%= group.max_number_of_people %> People | Missing: <%= group.number_of_people_missing %>  </p>
   </a>
   <% end %>
   <div class="right-cover"></div>
