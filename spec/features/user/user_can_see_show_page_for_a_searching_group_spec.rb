@@ -20,7 +20,7 @@ describe "User can see individual page for a searching group" do
     expect(page).to have_content "Max number of people"
     expect(page).to have_content "12"
     expect(page).to have_content "Missing"
-    expect(page).to have_button "Request to Join"
+    expect(page).to have_content "Request to Join"
   end
     
   scenario "User clicks on a group from the group index page and sees all the detailed info of a group they are a member of" do
@@ -39,6 +39,6 @@ describe "User can see individual page for a searching group" do
     expect(page).to have_content "11"
     expect(page).to have_content "Missing"
 
-    expect(page).to_not have_button "Request to Join"
+    expect(page).to_not have_content "Request to Join"
   end
 end
