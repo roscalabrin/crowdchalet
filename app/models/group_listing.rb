@@ -16,4 +16,10 @@ class GroupListing < ApplicationRecord
     end
     all.order(rank_score: :desc)
   end
+  
+  def create_initial_user_rankings
+    searching_group.users.each do |user|
+      user.user_rankings.create(user_id: user.id, group_listing_id: self.id)
+    end
+  end
 end

@@ -1,8 +1,9 @@
 class GroupListingsController < ApplicationController
-  def create   
+  def create  
     listing_id = find_listing_id
     group_listing = find_group_listing(listing_id)
-    SearchingGroup.create_associated_user_rankings(set_listing.third, group_listing.id)
+    group_listing.create_initial_user_rankings
+  
     render json: true
   end
   
@@ -11,6 +12,7 @@ class GroupListingsController < ApplicationController
     group_listing = find_group_listing(listing_id)
     UserRanking.remove_associated(group_listing.id)
     group_listing.delete
+    
     render json: false
   end
   

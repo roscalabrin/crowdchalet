@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :group_listings, only: [:create]
-  delete 'group_listings', to: 'group_listings#destroy'
+  delete 'group_listings',   to: 'group_listings#destroy'
   resources :user_listings,  only: [:create]
   delete 'user_listings',    to: 'user_listings#destroy'
   

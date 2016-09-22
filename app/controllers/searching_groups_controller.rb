@@ -11,11 +11,10 @@ class SearchingGroupsController < ApplicationController
     @searching_group = SearchingGroup.new(group_params)
     @searching_group.update(group_leader: current_user.id)
     if @searching_group.save
-      create_users_group
-      # UsersGroup.create_groups(@searching_group, current_user.id)
+      @searching_group.create_user_group(current_user.id)
+      success
     else
-      flash[:failure] = @searching_group.errors.full_messages.join(', ')
-      redirect_to new_searhing_group_path
+      failure
     end
   end
   
@@ -36,12 +35,13 @@ class SearchingGroupsController < ApplicationController
     )
   end
   
-  def create_users_group
-    UsersGroup.create(
-      user_id: current_user.id, 
-      searching_group_id: @searching_group.id
-    )
+  def success
     flash.now[:sucess] = "You have successfully created the #{@searching_group.name} group!"
     redirect_to @searching_group
+  end
+  
+  def failure
+    flash[:failure] = @searching_group.errors.full_messages.join(', ')
+    redirect_to new_searching_group_path
   end
 end

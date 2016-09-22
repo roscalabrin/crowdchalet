@@ -9,12 +9,8 @@ class SearchingGroup < ApplicationRecord
   has_many :users, through: :users_groups
   has_many :group_listings
   
-  def self.create_associated_user_rankings(searching_group_id, group_listing_id)
-    find(searching_group_id).users.each do |user|
-      require "pry"
-      binding.pry
-      UserRanking.find_or_create_by(user_id: user.id, group_listing_id: group_listing_id)
-    end
+  def create_user_group(current_user_id)
+    users_groups.create(user_id: current_user_id)
   end
   
   def listing_added?(listing_id)
@@ -23,5 +19,9 @@ class SearchingGroup < ApplicationRecord
     else
       true
     end 
+  end
+  
+  def number_of_people_missing
+    max_number_of_people - users.count 
   end
 end

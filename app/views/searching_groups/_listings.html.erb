@@ -87,8 +87,6 @@
             <%= listing.name %>
           </td>
           <td> 
-            <!-- <button name="button-add-to-group" class="add-to-group" value="<%= listing.name%>|<%#= listing.url%>|<%#=@searching_group.id %>">Add to Group</button> -->
-      
             <div class="add-to-group" data-listing="<%= listing.name%>|<%= listing.url%>|<%=@searching_group.id %>" data-initial-is-not-added="<%= !@searching_group.listing_added?(listing.id) %>"></div>
           </td>
           </tr>
