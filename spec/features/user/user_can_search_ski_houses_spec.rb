@@ -2,9 +2,8 @@ require 'rails_helper'
 
 feature "User can search for ski houses to rent" do
   before do
-    setup_for_omniauth
-    visit root_path
-    click_link "Login with Facebook"
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
   end
   scenario "user enter valid search parameters and sees a list of house listings" do
     VCR.use_cassette("#craigslist_search_ski_houses") do

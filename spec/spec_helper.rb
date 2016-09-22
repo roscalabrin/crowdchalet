@@ -3,6 +3,7 @@ require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter 'helpers/'
   add_filter 'channels/'
+  add_filter 'jobs/'
   add_filter 'mailers/'
   add_filter '/models/application_record.rb'
 end
