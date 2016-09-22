@@ -1,0 +1,25 @@
+<div class="expander">
+  <a href="javascript:void(0)" class="expander-trigger expander-hidden">Add Houses to this Group</a>
+  <div class="expander-content">
+    <table class="tables">
+      <thead>
+        <tr>
+          <th>My Saved Listings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @current_user.saved_listings.each do |listing| %>
+          <tr>
+          <td> 
+            <%= listing.name %>
+          </td>
+          <td> 
+            <div class="add-to-group" data-listing="<%= listing.name%>|<%= listing.url%>|<%=@searching_group.id %>" data-initial-is-not-added="<%= !@searching_group.listing_added?(listing.id) %>"></div>
+          </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

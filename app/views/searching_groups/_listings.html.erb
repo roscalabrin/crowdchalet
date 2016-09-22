@@ -11,91 +11,12 @@
           <td> 
             <li><%= link_to listing.user_listing.name, listing.user_listing.url %></li>
           </td>
-            <!-- <%#= react_component('LikeListing', groupListingID: listing.id, initialIsUnLiked: listing.likes.where(user_id: current_user.id).empty?) %> -->
         </tr>  
       <% end %>
     </ol>
   </tbody>
 </table>
-
 </br>
-<div class="expander">
-  <a href="javascript:void(0)" class="expander-trigger expander-hidden">Rank Potential Houses</a>
-  <div class="expander-content">
-    <table class="tables group-table">
-      <thead>
-        <tr>
-          <th>Potential Houses</th>
-          <th>Rank Location</th>
-          <th>Rank Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_user.find_rankings(@searching_group.id).each do |user_ranking| %>
-          <tr>
-            <td> <%= user_ranking.group_listing.user_listing.name %></td>
-            <td>
-              <div class="dropdown">
-                <div class="dropdown-container">
-                  <p > <%= user_ranking.location_rank %></p>
-                  
-                  <select class="dropdown-location">Click to Change
-                    <option value="option1" selected="selected">Click to Change</option>
-                    <option value="great<%= user_ranking.group_listing.user_listing.id %>">Great</option>
-                    <option value="ok">Ok</option>
-                    <option value="meh">Meh</option>
-                  </select>
-                </div>
-              </div>
-            </td>
-      
-            <td>
-              <div class="dropdown">
-                <div class="dropdown-container">
-                  <p class="dropdown-description"> <%= user_ranking.price_rank %></p>
-                  <p class="dropdown-button">Click to Change</p>
-                  <ul class="dropdown-menu dropdown-select">
-                    <li>Great</li>
-                    <li>Ok</li>
-                    <li>Meh</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="like-listing" data-user-ranking-id="<%= user_ranking.id %>" data-initial-is-unliked="<%= !user_ranking.liked %>"></div>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-</br>
-<div class="expander">
-  <a href="javascript:void(0)" class="expander-trigger expander-hidden">Add Houses to this Group</a>
-  <div class="expander-content">
-    <table class="tables">
-      <thead>
-        <tr>
-          <th>My Saved Listings</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @current_user.saved_listings.each do |listing| %>
-          <tr>
-          <td> 
-            <%= listing.name %>
-          </td>
-          <td> 
-            <div class="add-to-group" data-listing="<%= listing.name%>|<%= listing.url%>|<%=@searching_group.id %>" data-initial-is-not-added="<%= !@searching_group.listing_added?(listing.id) %>"></div>
-          </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-  </div>
-</div>
-
+<%= render partial: "user_rankings" %>
+<%= render partial: "add_listings" %>
 

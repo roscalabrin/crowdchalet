@@ -10,13 +10,13 @@ class UserRanking < ApplicationRecord
   
   def location_rank
     return "Great" if location == 1
-    return "OK"    if location == 0
+    return "Ok"    if location == 0
     return "Meh"   if location == -1
   end
 
   def price_rank
-    return "Great" if location == 1
-    return "OK"    if location == 0
-    return "Meh"   if location == -1
+    return "Great" if price == 1
+    return "Ok"    if price == 0
+    return "Meh"   if price == -1
   end
 end

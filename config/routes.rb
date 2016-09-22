@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :likes,          only: [:create]
   delete 'likes', to: 'likes#destroy'
   
-  resources :rank_locations, only: [:update]
+  resources :rank_locations, only: [:create]
   
   resources :group_listings, only: [:create]
   delete 'group_listings',   to: 'group_listings#destroy'

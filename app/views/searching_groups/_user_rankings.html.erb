@@ -1,0 +1,53 @@
+<div class="expander">
+  <a href="javascript:void(0)" class="expander-trigger expander-hidden">Rank Potential Houses</a>
+  <div class="expander-content">
+    <table class="tables group-table">
+      <thead>
+        <tr>
+          <th>Potential Houses</th>
+          <th>Rank Location</th>
+          <th>Rank Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_user.find_rankings(@searching_group.id).each do |user_ranking| %>
+          <tr>
+            <td> <%= user_ranking.group_listing.user_listing.name %></td>
+            <td>
+              <div class="dropdown">
+                <div class="dropdown-container">
+                  <p > <%= user_ranking.location_rank %></p>
+                  <select class="dropdown-location">Click to Change
+                    <option value="option1" selected="selected">Click to Change</option>
+                    <option value="location|great|<%= user_ranking.id %>">Great</option>
+                    <option value="location|ok|<%= user_ranking.id %>">Ok</option>
+                    <option value="location|meh|<%= user_ranking.id %>">Meh</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+            
+            <td>
+              <div class="dropdown">
+                <div class="dropdown-container">
+                  <p > <%= user_ranking.price_rank %></p>
+                  <select class="dropdown-location">Click to Change
+                    <option value="option1" selected="selected">Click to Change</option>
+                    <option value="price|great|<%= user_ranking.id %>">Great</option>
+                    <option value="price|ok|<%= user_ranking.id %>">Ok</option>
+                    <option value="price|meh|<%= user_ranking.id %>">Meh</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+            
+            <td>
+              <div class="like-listing" data-user-ranking-id="<%= user_ranking.id %>" data-initial-is-unliked="<%= !user_ranking.liked %>"></div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</br>
