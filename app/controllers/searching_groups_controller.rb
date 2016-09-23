@@ -1,4 +1,5 @@
 class SearchingGroupsController < ApplicationController
+  
   def index
     @searching_groups = SearchingGroup.all
   end
@@ -19,7 +20,8 @@ class SearchingGroupsController < ApplicationController
   end
   
   def show
-    @presenter = GroupShowPresenter.new(params[:id], current_user.id)
+    current_user_id = current_user ? current_user.id : 0
+    @presenter = GroupShowPresenter.new(params[:id], current_user_id)
   end
   
   private
