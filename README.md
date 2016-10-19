@@ -1,24 +1,38 @@
-# README
+# CrowdChalet
+Web app to help Colorado skiers find and organize seasonal ski house rentals.
+Users can create a group to search for houses and all group members have rank the house listings.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Technologies Used
+* Ruby on Rails
+* JavaScript
+* React
+* Ajax
+* Nokogiri
+* TDD using RSpec, Capybara
 
-Things you may want to cover:
+#### Functionality
+Visitors can:
+* search ski houses postings by location and price
+* browse groups
 
-* Ruby version
+Users can:
+* login with Facebook
+* create a new group
+* search ski houses postings by location and price
+* save a listing from their search results to their account
+* rate listings on their group page
 
-* System dependencies
+#### Usage
+Link to the app [here](https://crowdchalet.herokuapp.com/)
 
-* Configuration
+To run locally:
 
-* Database creation
+Clone this repository to your local machine, cd into the project directory
 
-* Database initialization
+Bundle: `bundle`
 
-* How to run the test suite
+Set up database: `rake db:{create,migrate}`
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the Server: `rails s`
 
-* Deployment instructions
-
-* ...
+In your browsers, navigate to: `localhost:3000`
